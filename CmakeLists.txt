@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.23.2)
+project(MAZE_GENERATOR)
+
+set(CMAKE_CXX_STANDARD 17)
+
+find_package(fmt REQUIRED)
+
+# Find the SDL2 package
+find_package(SDL2 REQUIRED)
+
+# Add the include directories for SDL2
+# Add an executable
+add_executable(gen main.cc)
+
+# Link the SDL2 library to the executable
+target_link_libraries(gen ${SDL2_LIBRARIES} fmt::fmt)
+target_include_directories(gen PRIVATE ${SDL2_INCLUDE_DIRS})
